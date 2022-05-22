@@ -1,7 +1,5 @@
 import java.util.Random;
 
-import org.omg.CORBA.portable.ValueOutputStream;
-
 import java.util.ArrayList;
 public class Faculty extends Person {
     

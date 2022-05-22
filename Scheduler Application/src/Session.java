@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+import javax.lang.model.util.ElementScanner6;
+
 public class Session {
 
     Course course;
@@ -64,8 +66,8 @@ public class Session {
         this.isCanceled = isCanceled;
     }
 
-    public void isSessionCanceled(ArrayList<Student> students, Course course) {
-        if(students.size() < course.getMin())
+    public void isSessionCanceled() {
+        if(getStudents().size() < getCourse().getMin())
             setIsCanceled(true);
 
         else setIsCanceled(false);
@@ -77,19 +79,41 @@ public class Session {
 
         else {
             getStudents().add(student);
-            isSessionCanceled(getStudents(), getCourse());
+            isSessionCanceled();
         }
 
     }
 
+    public boolean finalCheck() {
+        if(getStudents().size() < getCourse().getMin()) {
+            getStudents().clear();
+            setIsCanceled(true);
+            setFaculty(null);
+            return false;
+        }
+
+        else
+            return true;
+    }
+
     @Override
     public String toString() {
-        return
-            "Course: \t\t" + getCourse().getCourseID() + "\n" +
-            "Session ID: \t" + getId() + "\n" +
-            "Is Canceled: \t" + isIsCanceled() + "\n" +
-            "Professor: \t\t" + getFaculty().getFName() + " " + getFaculty().getLName() + "\n" +
-            "Students: \n" + getStudents() + "\n";
+        if(finalCheck()) {
+            return
+                "Course: \t\t" + getCourse().getCourseID() + "\n" +
+                "Session ID: \t" + getId() + "\n" +
+                "Is Canceled: \t" + isIsCanceled() + "\n" +
+                "Professor: \t\t" + getFaculty().getFName() + " " + getFaculty().getLName() + "\n" +
+                "Students: \n" + getStudents() + "\n";
+        }
+        else {
+            return
+                "Course: \t\t" + getCourse().getCourseID() + "\n" +
+                "Session ID: \t" + getId() + "\n" +
+                "Is Canceled: \t" + isIsCanceled() + "\n" +
+                "Professor: \t\t" + "THIS SESSION IS CANCELED" + "\n" +
+                "Students: \n" + "THIS SESSION IS CANCELED" + "\n";
+        }
     }
 
 }
