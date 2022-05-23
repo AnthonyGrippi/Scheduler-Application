@@ -1,8 +1,6 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.lang.model.util.ElementScanner6;
-
 public class Session {
 
     Course course;
@@ -108,11 +106,11 @@ public class Session {
         }
         else {
             return
-                "Course: \t\t" + getCourse().getCourseID() + "\n" +
+                "Course: \t" + getCourse().getCourseID() + "\n" +
                 "Session ID: \t" + getId() + "\n" +
                 "Is Canceled: \t" + isIsCanceled() + "\n" +
-                "Professor: \t\t" + "THIS SESSION IS CANCELED" + "\n" +
-                "Students: \n" + "THIS SESSION IS CANCELED" + "\n";
+                "Professor: \t" + "THIS SESSION IS CANCELED" + "\n" +
+                "Students: \t" + "THIS SESSION IS CANCELED" + "\n";
         }
     }
 

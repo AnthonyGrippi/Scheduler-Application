@@ -93,14 +93,21 @@ public class Course {
         this.sessions = sessions;
     }
 
-    public void isCourseCanceled() {
-        if(getSessions().size() == 0)
+    public boolean isCourseCanceled() {
+        if(getSessions().size() == 0) {
             setIsCanceled(true);
+            return true;
+        }
+        else {
+            setIsCanceled(false);
+            return false;
+        }
     }
 
     @Override
     public String toString() {
-        return
+        if(!isCourseCanceled()) {
+            return
             "Department: \t" + getDep() + "\n" +
             "Code: \t\t\t" + getCode() + "\n" +
             "Description: \t" + getDesc() + "\n" +
@@ -109,6 +116,17 @@ public class Course {
             "Maximum: \t\t" + getMax() + "\n" +
             "Sessions: \t" + getSessions() + "\n" + 
             "Is Canceled: \t" + isIsCanceled() + "\n\n";
+        }
+        else {
+            return
+            "Department: \t" + getDep() + "\n" +
+            "Code: \t\t\t" + getCode() + "\n" +
+            "Description: \t" + getDesc() + "\n" +
+            "Course ID: \t\t" + getCourseID() + "\n" +
+            "Minimum: \t\t" + getMin() + "\n" +
+            "Maximum: \t\t" + getMax() + "\n" +
+            "Course is CANCELED";
+            }
         }
 
     }

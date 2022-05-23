@@ -1,7 +1,20 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 
 public class Main {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {        
+
+        // First must create students
+        // Second create an Arraylist of sessions for each course
+        // Third Create course and pass the arraylist above into the constructor
+        // Create an Arraylist of students for each session
+        // add each student to the Arraylist 
+        // check if the session is canceled
+        // once all students have been added to sessions and sessions have been canceled accordingly check if any courses have been canceled
 
         // Create new People both faculty and sudents
         Person p = new Person("Anthony", "J.", "Grippi", "anthonyjgrippi@gmail.com", "949-441-6667", "1402 Ave. De La Estrella", "San Clemente", "CA", "92672");
@@ -15,7 +28,7 @@ public class Main {
         ArrayList<Session> physicsSessions = new ArrayList<Session>();
 
         // Create two Courses, Course Constructor requires an Array List of Sessions
-        Course cs1D = new Course("CS", "1D", "Computer Science", 10, 35, false, csSessions );
+        Course cs1D = new Course("CS", "1D", "Computer Science", 1, 35, false, csSessions );
         Course psys4a = new Course("PSYS", "4A", "Physics", 5, 50, false, physicsSessions );
 
         // Array list of sudets to add to the sessions
@@ -32,7 +45,7 @@ public class Main {
         csSession1.isSessionCanceled();
 
         // Print Session
-        System.out.println(csSession1.toString());
+        System.out.println(psys4a.toString());
 
         //Session s1 = new Session(c1, f, students, false);
 
@@ -44,7 +57,6 @@ public class Main {
 
         //System.out.println(c1.toString());
         //System.out.println(c2.toString());
-
 
     }
 }
